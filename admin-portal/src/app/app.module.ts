@@ -7,17 +7,21 @@ import {MaterialModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 
+import {LoginService} from './services/login.service';
+import { AddBookService } from './services/add-book.service';
+
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 
-import {LoginService} from './services/login.service';
+import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    AddNewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import {LoginService} from './services/login.service';
     BrowserAnimationsModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    AddBookService
   ],
   bootstrap: [AppComponent]
 })
