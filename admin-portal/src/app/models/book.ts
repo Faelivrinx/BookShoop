@@ -11,7 +11,7 @@ export class Book {
 	public isbn: string;
 	public shippingWeight: number;
 	public listPrice: number;
-	public outPrice: number;
+	public ourPrice: number;
 	public active: boolean;
 	public description: string;
 	public inStockNumber: number;

@@ -25,7 +25,7 @@ public class Book implements Serializable{
     private String language;
     private String category;
     private int numberOfPages;
-    private String fromat;
+    private String format;
     private String isbn;
     private double shippingWeight;
     private double listPrice;
@@ -99,12 +99,12 @@ public class Book implements Serializable{
         this.numberOfPages = numberOfPages;
     }
 
-    public String getFromat() {
-        return fromat;
+    public String getFormat() {
+        return format;
     }
 
-    public void setFromat(String fromat) {
-        this.fromat = fromat;
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public String getIsbn() {

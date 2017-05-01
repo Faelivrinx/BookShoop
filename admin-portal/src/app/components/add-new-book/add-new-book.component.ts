@@ -23,7 +23,7 @@ export class AddNewBookComponent implements OnInit {
           this.newBook.active = true;
           this.newBook.category= "Managment";
           this.newBook.language= "English";
-          this.newBook.format = "paperback"
+          this.newBook.format = "paperback";
 
   			}, error => {
   				console.log(error);
@@ -36,7 +36,7 @@ export class AddNewBookComponent implements OnInit {
     this.newBook.active = true;
     this.newBook.category= "Managment";
     this.newBook.language= "English";
-    this.newBook.format = "paperback"
+    this.newBook.format = "paperback";
   }
 
 }
