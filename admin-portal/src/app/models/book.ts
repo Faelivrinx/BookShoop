@@ -1,5 +1,5 @@
 export class Book {
-	public int: number;
+	public id: number;
 	public title: string;
 	public author: string;
 	public publisher: string;

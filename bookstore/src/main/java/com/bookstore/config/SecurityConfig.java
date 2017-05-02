@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/image/**",
-            "/book/**",
+            "/books/**",
             "/user/**"
     };
 
@@ -43,7 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().disable().httpBasic()
                 .and().authorizeRequests()
-                .antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();
+                .antMatchers(PUBLIC_MATCHERS).permitAll()
+                .anyRequest().authenticated();
     }
 
     @Autowired

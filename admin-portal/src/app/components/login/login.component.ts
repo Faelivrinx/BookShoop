@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
        res=> {
          this.loggedIn = true;
        }, error =>{
-           this.loggedIn = false;
+         this.loggedIn = false;
        }
      );
   }

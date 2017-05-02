@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AddBookService } from '../../services/add-book.service';
+import { UploadImageService } from '../../services/upload-image.service';
 import { Book } from '../../models/book';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-add-new-book',
@@ -13,11 +15,12 @@ export class AddNewBookComponent implements OnInit {
 	private bookAdded: boolean;
 
 
-  constructor(private addBookService: AddBookService) { }
+  constructor(private addBookService: AddBookService, private uploadImageService: UploadImageService) { }
 
   onSubmit(){
   	this.addBookService.sendBook(this.newBook).subscribe(
-  			res =>{
+  			res => {
+          this.uploadImageService.upload(JSON.parse(JSON.parse(JSON.stringify(res))._body).id);
   				this.bookAdded = true;
           this.newBook = new Book();
           this.newBook.active = true;
