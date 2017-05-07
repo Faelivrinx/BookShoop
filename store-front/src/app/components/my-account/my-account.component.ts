@@ -24,6 +24,7 @@ export class MyAccountComponent implements OnInit {
 
 	private emailNotExists:boolean = false;
 	private forgetPasswordEmailSent: boolean;
+  private recoverEmail:string;
 
 
 
@@ -49,7 +50,51 @@ export class MyAccountComponent implements OnInit {
   		)
   }
 
+  onNewAccount() {
+
+    this.usernameExists = false;
+    this.emailExists = false;
+    this.emailSent = false;
+
+    this.userService.newUser(this.username, this.email).subscribe(
+        res => {
+           console.log(res);
+           this.emailSent = true;
+        }, error => {
+            console.log(error.text());
+            let errorMessage = error.text();
+            if(errorMessage == "usernameExists") this.usernameExists = true;
+            if(errorMessage == "emailExists") this.emailExists = true;
+
+        }
+      );
+  }
+
+  onForgetPassword() {
+    this.forgetPasswordEmailSent = false;
+    this.emailNotExists = false;
+
+    this.userService.retrievePassword(this.recoverEmail).subscribe(
+        res => {
+          console.log(res);
+          this.emailSent = true;
+        }, error => {
+           console.log(error.text());
+           let errorMessage = error.text();
+           if(errorMessage == "emailExists") this.emailExists = true;
+        }
+      );
+  }
+
   ngOnInit() {
+
+    this.loginService.checkSession().subscribe(
+        res => {
+          this.loggedIn = true;
+        }, error => {
+          this.loggedIn = false;
+        }
+      );
   }
 
 }
