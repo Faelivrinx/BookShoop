@@ -44,4 +44,24 @@ public class UserServiceImpl  implements UserService{
         return localUser;
     }
 
+    @Override
+    public User findByUsername(String username) {
+        return userRepositiory.findByUsername(username);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepositiory.findByEmail(email);
+    }
+
+    @Override
+    public User save(User user) {
+        return userRepositiory.save(user);
+    }
+
+    @Override
+    public User findById(Long id) {
+        return userRepositiory.findOne(id);
+    }
+
 }

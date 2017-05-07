@@ -39,7 +39,7 @@ export class LoginService {
 
   	logout(){
 
-  	let url = this.serverPath + "user/logout";
+  	let url = this.serverPath + "/user/logout";
   	let headers = new Headers(
   		{
   		'x-auth-token': localStorage.getItem("xAuthToken")
